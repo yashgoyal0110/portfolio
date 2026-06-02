@@ -58,7 +58,7 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <MagneticButton href={profile.resumeUrl} variant="primary" external download>
+            <MagneticButton href={profile.resumeUrl} variant="primary" download="Yash-Goyal-Resume.pdf">
               <FileText className="h-4 w-4" />
               Résumé
             </MagneticButton>

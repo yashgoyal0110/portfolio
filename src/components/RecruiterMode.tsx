@@ -127,7 +127,7 @@ export function RecruiterMode({ open, onClose }: RecruiterModeProps) {
 
             {/* footer CTA */}
             <div className="border-t border-ink-700/60 p-5">
-              <a href={profile.resumeUrl} download target="_blank" rel="noreferrer" className="btn-primary w-full">
+              <a href={profile.resumeUrl} download="Yash-Goyal-Resume.pdf" className="btn-primary w-full">
                 <Download className="h-4 w-4" />
                 Download full résumé
                 <FileText className="h-4 w-4" />

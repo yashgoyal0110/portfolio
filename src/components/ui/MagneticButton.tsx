@@ -8,7 +8,7 @@ interface MagneticButtonProps {
   onClick?: () => void
   variant?: 'primary' | 'ghost'
   className?: string
-  download?: boolean
+  download?: boolean | string
   external?: boolean
   ariaLabel?: string
 }
@@ -37,8 +37,8 @@ export function MagneticButton({
         className={cls}
         aria-label={ariaLabel}
         download={download}
-        target={external ? '_blank' : undefined}
-        rel={external ? 'noreferrer' : undefined}
+        target={external && !download ? '_blank' : undefined}
+        rel={external && !download ? 'noreferrer' : undefined}
       >
         {children}
       </a>

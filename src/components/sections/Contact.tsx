@@ -75,7 +75,7 @@ export function Contact() {
               href={s.href}
               target={s.href.startsWith('http') ? '_blank' : undefined}
               rel="noreferrer"
-              download={s.id === 'resume'}
+              download={s.id === 'resume' ? 'Yash-Goyal-Resume.pdf' : undefined}
               className="card group flex items-center gap-4 p-4 transition-colors hover:border-accent-400/40"
             >
               <div className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-accent-300 transition-transform duration-300 group-hover:scale-110">
