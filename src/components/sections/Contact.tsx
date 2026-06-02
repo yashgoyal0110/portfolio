@@ -25,7 +25,7 @@ export function Contact() {
       id="contact"
       eyebrow="Contact"
       title={<span className="text-gradient">Let's build something reliable.</span>}
-      intro={`${profile.availability} — based in ${profile.location}. Drop a message and I'll get back to you.`}
+      intro={`${profile.availability} remote/on-site. Drop a message and I'll get back to you.`}
     >
       <div className="grid gap-5 lg:grid-cols-[1.2fr_1fr]">
         {/* terminal form */}

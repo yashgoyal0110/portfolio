@@ -33,7 +33,7 @@ export const profile: Profile = {
   location: 'Bangalore, India',
   availability: 'Open to full-time SWE roles',
   intro:
-    'Full stack engineer who lives across the stack — shipping product features, ' +
+    'Full stack engineer who lives across the stack. Shipping product features, ' +
     'taming Kubernetes clusters, and wiring up observability so things stay online at 3am.',
   about: [
     'I’m an engineer who is happiest where product and infrastructure meet. I’ve served as the primary technical engineer for 50+ customers running production apps, debugged failing clusters across ~15 Kubernetes environments, and built the backend services that move real money through ledgers and payouts.',
