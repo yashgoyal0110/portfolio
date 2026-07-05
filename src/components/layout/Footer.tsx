@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-ink-700/60 py-10">
       <div className="container-px flex flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="text-sm text-mist-500">
-          © {year} {profile.name}. Built with React, Three.js & Tailwind.
+          © {year} {profile.name}
         </div>
         <div className="flex items-center gap-4">
           {socials

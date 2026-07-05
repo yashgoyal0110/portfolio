@@ -14,7 +14,7 @@ export function Experience() {
       id="experience"
       eyebrow="Experience"
       title="Where I've shipped"
-      intro="Roles spanning forward-deployed infrastructure work and core backend product engineering."
+      intro="Roles spanning real-time robotics, forward-deployed infrastructure, and core backend product engineering."
     >
       <div className="relative">
         {/* timeline rail */}

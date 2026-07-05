@@ -1,9 +1,10 @@
 import { Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, FileText, Mail } from 'lucide-react'
+import { ArrowDown, FileText, Mail, MapPin } from 'lucide-react'
 import { Github, Linkedin } from '@/components/ui/icons'
 import { profile } from '@/config/profile'
 import { socials } from '@/config/socials'
+import { experience } from '@/config/experience'
 import { useTypewriter } from '@/hooks/useTypewriter'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 
@@ -12,6 +13,9 @@ const HeroScene = lazy(() => import('@/components/three/HeroScene'))
 function social(id: string) {
   return socials.find((s) => s.id === id)?.href ?? '#'
 }
+
+/** Current role = the experience still marked "Present". */
+const current = experience.find((e) => e.end === 'Present')
 
 export function Hero() {
   const role = useTypewriter(profile.roles)
@@ -36,13 +40,19 @@ export function Hero() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl"
         >
-          <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-mist-300">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-mist-300">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              {profile.availability}
             </span>
-            {profile.availability}
-          </span>
+            <span className="glass inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs text-mist-400">
+              <MapPin className="h-3.5 w-3.5 text-accent-300" />
+              {profile.location}
+            </span>
+          </div>
 
           <h1 className="mt-6 text-5xl font-semibold leading-[1.05] sm:text-7xl">
             {profile.name}
@@ -52,6 +62,15 @@ export function Hero() {
             <span>{role}</span>
             <span className="cursor-blink text-accent-400">▍</span>
           </div>
+
+          {current && (
+            <div className="mt-4 inline-flex items-center gap-2 text-sm text-mist-400">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-mist-500">Now</span>
+              <span className="h-3 w-px bg-ink-600" />
+              <span className="text-mist-200">{current.role}</span>
+              <span className="text-accent-300">@ {current.company}</span>
+            </div>
+          )}
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist-400">
             {profile.intro}

@@ -14,10 +14,10 @@ interface SectionProps {
 /** Standard section shell: anchor id, eyebrow label, heading, intro, content. */
 export function Section({ id, eyebrow, title, intro, children, className }: SectionProps) {
   return (
-    <section id={id} className={cn('relative scroll-mt-24 py-24 sm:py-32', className)}>
+    <section id={id} className={cn('relative scroll-mt-24 py-16 sm:py-20', className)}>
       <div className="container-px">
         {(eyebrow || title || intro) && (
-          <Reveal className="mb-14 max-w-3xl">
+          <Reveal className="mb-10 sm:mb-12 max-w-3xl">
             {eyebrow && (
               <span className="eyebrow">
                 <span className="h-px w-6 bg-accent-400/60" />

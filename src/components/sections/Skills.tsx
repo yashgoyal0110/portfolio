@@ -3,10 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { skillCategories, skills } from '@/config/skills'
 import type { SkillCategory } from '@/config/skills'
 import { projects } from '@/config/projects'
+import { experience } from '@/config/experience'
 import { Section } from '@/components/ui/Section'
 import { cn } from '@/lib/cn'
 
-const projectName = (id: string) => projects.find((p) => p.id === id)?.name ?? id
+const projectName = (id: string) =>
+  projects.find((p) => p.id === id)?.name ??
+  experience.find((e) => e.id === id)?.company ??
+  id
 
 export function Skills() {
   const [filter, setFilter] = useState<SkillCategory | 'All'>('All')

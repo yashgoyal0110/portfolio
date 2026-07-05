@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useVisitorPing } from '@/hooks/useVisitorPing'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { RecruiterMode } from '@/components/RecruiterMode'
@@ -13,6 +14,7 @@ import { Contact } from '@/components/sections/Contact'
 
 function App() {
   const [recruiterOpen, setRecruiterOpen] = useState(false)
+  useVisitorPing()
 
   return (
     <div className="relative">

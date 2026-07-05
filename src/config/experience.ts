@@ -16,6 +16,29 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    id: 'mrfood',
+    company: 'mrfood.ai',
+    role: 'Founding Engineering Intern',
+    location: 'USA (remote)',
+    start: 'Jun 2026',
+    end: 'Present',
+    summary:
+      'Building the real-time teleoperation and data pipeline behind a bimanual robotics platform.',
+    highlights: [
+      'Built a real-time bimanual teleop loop driving 2× 6-DOF AgileX PiPER arms from Meta Quest controllers — 250 Hz Pink/Pinocchio IK feeding a 100 Hz SocketCAN loop with 3 m/s jump-rejection and 180°/s slew clamps.',
+      'Hardened teleop for remote use across 4 transports with frame_seq packet-drop detection and a CAN circuit breaker that held control stable over lossy networks.',
+      'Owned the data & observability pipeline: 4 video paths (WebRTC / Agora / Adamo + an isolated GCS recorder) plus arm/operator telemetry to BigQuery and RGBD to GCS via async sinks.',
+      'Stood up Prometheus & Grafana monitoring with Slack alerting, and a LeRobot writer that chunked and pushed training-ready datasets to HuggingFace.',
+    ],
+    impact: [
+      { label: 'Control loop', value: '100 Hz' },
+      { label: 'IK solve rate', value: '250 Hz' },
+      { label: 'Robot arms', value: '2× 6-DOF' },
+      { label: 'Video paths', value: '4' },
+    ],
+    stack: ['Python', 'Pinocchio', 'SocketCAN', 'WebRTC', 'BigQuery', 'GCS', 'Prometheus', 'Grafana', 'LeRobot'],
+  },
+  {
     id: 'emergent',
     company: 'Emergent Labs',
     role: 'Forward Deployed Engineer — Intern',
@@ -40,7 +63,7 @@ export const experience: Experience[] = [
   },
   {
     id: 'succesship',
-    company: 'Succesship Technologies',
+    company: 'Successship Technologies',
     role: 'Software Engineer — Intern',
     location: 'Bangalore',
     start: 'Jan 2025',

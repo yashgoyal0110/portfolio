@@ -41,6 +41,7 @@ export const skills: Skill[] = [
   { name: 'Node.js', category: 'Backend', level: 4, usedIn: ['wanderlust'] },
   { name: 'Express', category: 'Backend', level: 4 },
   { name: 'Spring Boot', category: 'Backend', level: 4, usedIn: ['succesship'] as string[], note: 'Ledger, inventory & payout services' },
+  { name: 'WebRTC / Real-time', category: 'Backend', level: 3, usedIn: ['mrfood'], note: 'Low-latency teleop video & control transports' },
 
   // Databases
   { name: 'PostgreSQL', category: 'Databases', level: 4, note: 'Double-entry accounting schema' },
@@ -53,11 +54,12 @@ export const skills: Skill[] = [
   { name: 'Docker', category: 'Cloud & DevOps', level: 5, usedIn: ['vaultrag', 'wanderlust'] },
   { name: 'AWS (EC2/ECR/ECS)', category: 'Cloud & DevOps', level: 4, usedIn: ['wanderlust'] },
   { name: 'Cloudflare', category: 'Cloud & DevOps', level: 4, usedIn: ['vaultrag'] },
+  { name: 'GCP (BigQuery / GCS)', category: 'Cloud & DevOps', level: 3, usedIn: ['mrfood'], note: 'Telemetry & RGBD data sinks' },
   { name: 'CI/CD', category: 'Cloud & DevOps', level: 4 },
   { name: 'Nginx', category: 'Cloud & DevOps', level: 4 },
   { name: 'Linux', category: 'Cloud & DevOps', level: 4 },
   { name: 'OpenTelemetry', category: 'Cloud & DevOps', level: 3 },
-  { name: 'Prometheus / Grafana', category: 'Cloud & DevOps', level: 4 },
+  { name: 'Prometheus / Grafana', category: 'Cloud & DevOps', level: 4, usedIn: ['mrfood'], note: 'Monitoring & Slack alerting' },
 
   // AI / ML
   { name: 'LangChain', category: 'AI / ML', level: 3, usedIn: ['succesship'] },
