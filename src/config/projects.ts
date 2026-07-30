@@ -22,32 +22,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'vaultrag',
-    name: 'VaultRAG',
+    id: 'axon',
+    name: 'Axon',
     kind: 'featured',
-    tagline: 'A privacy-first document Q&A platform running entirely on the edge.',
+    tagline: 'A multi-tenant WhatsApp automation SaaS with a drag-and-drop flow builder.',
     problem:
-      'Most document-AI tools ship your private documents off to third-party model providers. VaultRAG answers questions about your documents without any data ever leaving Cloudflare’s edge.',
+      'Teams that live in WhatsApp still need engineers to change a single reply. Axon lets non-technical teams design chatbot conversations themselves on a drag-and-drop canvas, then publish them as immutable, versioned flows.',
     architecture:
-      'Multi-tenant RAG pipeline spanning ten Cloudflare products. PDFs are ingested and split with sentence-aware chunking, embedded with BGE, stored in Vectorize, and answered with Llama 3.1 inference — all on Workers AI. R2 holds documents, D1 holds tenant state, and AI Gateway provides observability and caching.',
+      'A provider-agnostic conversation engine sits behind one code path serving the Meta Cloud API, Twilio, and a credential-free in-app sandbox. Inbound webhooks are verified with HMAC-SHA256/SHA1, de-duplicated against Redis-backed redelivery tracking, and matched to 24-hour session windows; anything off-script falls back to Gemini answering inside a configured persona. NestJS, PostgreSQL and Prisma hold workspace state.',
     features: [
-      'Complete RAG pipeline: PDF ingestion → sentence-aware chunking → vector search → LLM inference',
-      'No third-party AI providers — fully self-contained on Workers AI (Llama 3.1, BGE embeddings)',
-      'Multi-tenant isolation with per-tenant document stores',
-      'Sub-second cached query responses via AI Gateway observability',
+      'Drag-and-drop flow canvas across 8 node types, with immutable published flow versions',
+      'Workspace-scoped RBAC with 4 roles for multi-tenant isolation',
+      'One code path for Meta Cloud API, Twilio and a credential-free in-app sandbox',
+      'Redis-backed redelivery de-duplication, 24-hour session windows and a Gemini persona fallback',
+      'Ships as a single Docker image (API + SPA on one port) on GCP behind Caddy',
+      'Quota metering before every send, AES-256-GCM credential encryption and rotating refresh tokens',
     ],
     metrics: [
-      { label: 'Cloudflare products', value: '10' },
-      { label: 'Ingestion', value: '25 chunks/doc <60s' },
-      { label: 'Cached query latency', value: '<1s' },
+      { label: 'Flow node types', value: '8' },
+      { label: 'RBAC roles', value: '4' },
+      { label: 'Messaging providers', value: '3' },
+      { label: 'Session window', value: '24 h' },
     ],
-    stack: ['TypeScript', 'Cloudflare Workers', 'Workers AI', 'Vectorize', 'R2', 'D1', 'Llama 3.1'],
+    stack: ['NestJS', 'React', 'PostgreSQL', 'Prisma', 'Redis', 'Gemini', 'Docker', 'GCP'],
     links: [
       { label: 'GitHub', href: 'https://github.com/yashgoyal0110' },
       { label: 'Live demo', href: '#' },
     ],
     accent: '#4fd1e0',
-    year: '2025',
+    year: '2026',
   },
   {
     id: 'wanderlust',
@@ -55,7 +58,7 @@ export const projects: Project[] = [
     kind: 'featured',
     tagline: 'A 3-tier cloud-native app on a self-managed Kubernetes cluster.',
     problem:
-      'A DevOps-first study of running a real 3-tier application without managed Kubernetes — provisioning, orchestrating and operating the whole stack by hand on raw EC2.',
+      'A DevOps-first study of running a real 3-tier application without managed Kubernetes: provisioning, orchestrating and operating the whole stack by hand on raw EC2.',
     architecture:
       'Self-managed Kubernetes cluster provisioned on AWS EC2. Workloads orchestrated with Deployments, Services and ConfigMaps; a Node.js API tier, MongoDB data tier and Redis cache, containerized with Docker and designed around infrastructure reliability and container orchestration.',
     features: [

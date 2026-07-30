@@ -95,7 +95,7 @@ export function RecruiterMode({ open, onClose }: RecruiterModeProps) {
                 {projects.map((p) => (
                   <div key={p.id} className="py-1.5 text-sm">
                     <span className="text-mist-100">{p.name}</span>
-                    <span className="text-mist-500"> — {p.tagline}</span>
+                    <span className="text-mist-500"> · {p.tagline}</span>
                   </div>
                 ))}
               </Group>

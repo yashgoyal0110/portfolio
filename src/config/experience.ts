@@ -25,10 +25,11 @@ export const experience: Experience[] = [
     summary:
       'Building the real-time teleoperation and data pipeline behind a bimanual robotics platform.',
     highlights: [
-      'Built a real-time bimanual teleop loop driving 2× 6-DOF AgileX PiPER arms from Meta Quest controllers — 250 Hz Pink/Pinocchio IK feeding a 100 Hz SocketCAN loop with 3 m/s jump-rejection and 180°/s slew clamps.',
-      'Hardened teleop for remote use across 4 transports with frame_seq packet-drop detection and a CAN circuit breaker that held control stable over lossy networks.',
-      'Owned the data & observability pipeline: 4 video paths (WebRTC / Agora / Adamo + an isolated GCS recorder) plus arm/operator telemetry to BigQuery and RGBD to GCS via async sinks.',
-      'Stood up Prometheus & Grafana monitoring with Slack alerting, and a LeRobot writer that chunked and pushed training-ready datasets to HuggingFace.',
+      'Built the real-time bimanual teleoperation loop driving 2× 6-DOF AgileX PiPER arms from Meta Quest controllers: controller poses feed a 250 Hz Pink/Pinocchio differential-IK solver whose joint targets stream to a 100 Hz SocketCAN control loop.',
+      'Enforced velocity/accel limiting, jump rejection and hold-on-fault at the hardware boundary so the arms stay safe when input degrades.',
+      'Made teleoperation remote-resilient over lossy, high-latency links by abstracting operator input behind 4 interchangeable network transports, with per-frame frame_seq packet-drop detection and self-healing CAN fault recovery.',
+      'Owned the data & observability pipeline: 4 concurrent video paths (browser WebRTC, cloud RTC streaming, an isolated GCS recorder), arm/operator telemetry to BigQuery and RGBD to GCS via async sinks.',
+      'Stood up Prometheus & Grafana monitoring with Slack alerting, plus a LeRobot writer pushing training-ready datasets to HuggingFace.',
     ],
     impact: [
       { label: 'Control loop', value: '100 Hz' },
@@ -41,7 +42,7 @@ export const experience: Experience[] = [
   {
     id: 'emergent',
     company: 'Emergent Labs',
-    role: 'Forward Deployed Engineer — Intern',
+    role: 'Forward Deployed Engineering Intern',
     location: 'Bangalore',
     start: 'Mar 2026',
     end: 'May 2026',
@@ -50,7 +51,7 @@ export const experience: Experience[] = [
     highlights: [
       'Served as primary technical engineer for 50+ customers running production apps, diagnosing and resolving Kubernetes (pod crashloops / scheduling), Nginx, reverse-proxy, and container runtime failures across ~15 clusters.',
       'Cut average support turnaround ~45% and resolved 200+ infrastructure incidents while keeping high-traffic apps online at 99.9% uptime.',
-      'Built internal tooling for analytics, data and ops teams — automating repetitive ETL and reporting workflows with Airflow / cron jobs.',
+      'Built internal tooling for analytics, data and ops teams, automating repetitive ETL and reporting workflows with Airflow and cron jobs.',
       'Overhauled observability by instrumenting services with Prometheus metrics and Grafana dashboards, cutting mean-time-to-diagnosis and driving ~30% productivity gains across engineering and support.',
     ],
     impact: [
@@ -64,18 +65,18 @@ export const experience: Experience[] = [
   {
     id: 'succesship',
     company: 'Successship Technologies',
-    role: 'Software Engineer — Intern',
+    role: 'Software Engineering Intern',
     location: 'Bangalore',
     start: 'Jan 2025',
     end: 'Jul 2025',
     summary:
       'Architected core backend services for a distributor-management platform and an AI-powered AP/AR automation system.',
     highlights: [
-      'Led end-to-end development of a distributor-management platform for direct-selling businesses — architecting core inventory (statistical analysis & classification), ledger / double-entry accounting, and payout services with Spring Boot, Redis and PostgreSQL.',
+      'Led end-to-end development of a distributor-management platform for direct-selling businesses, architecting core inventory (statistical analysis & classification), ledger/double-entry accounting, and payout services with Spring Boot, Redis and PostgreSQL.',
       'Drove the company’s first client signing and first successful payout through the system.',
-      'Built an AI-powered AP/AR automation system from scratch using LLM / OCR and LangChain / OpenAI, cutting manual invoice processing by ~40%.',
+      'Built an AI-powered AP/AR automation system from scratch using LLM/OCR and LangChain/OpenAI, cutting manual invoice processing by ~40%.',
       'Ran 4+ client demos that validated usability and shaped early product direction.',
-      'Improved system reliability and cut server costs ~20% by triaging critical production issues and optimizing Docker images across 5+ services via base-image / multi-stage build strategies and version upgrades.',
+      'Improved system reliability and cut server costs ~20% by triaging critical production issues and optimizing Docker images across 5+ services via base-image and multi-stage build strategies and version upgrades.',
     ],
     impact: [
       { label: 'Manual invoice work', value: '−40%' },

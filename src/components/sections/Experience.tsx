@@ -49,7 +49,7 @@ export function Experience() {
                       </div>
                       <div className="flex items-center gap-3">
                         <span className="font-mono text-xs text-mist-500">
-                          {exp.start} — {exp.end}
+                          {exp.start} – {exp.end}
                         </span>
                         <ChevronDown
                           className={cn(

@@ -22,7 +22,7 @@ export const education: Education[] = [
     end: 'Present',
     grade: '8.5 / 10 CGPA',
     highlights: [
-      'GDG on Campus Lead (2024) — led flagship tech events, workshops and community initiatives.',
+      'GDG on Campus Lead (2024): led flagship tech events, workshops and community initiatives.',
       'All India Rank 1200 in ICPC Prelims 2023.',
     ],
     coursework: [

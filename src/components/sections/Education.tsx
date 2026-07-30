@@ -21,7 +21,7 @@ export function Education() {
                     <div className="flex flex-wrap items-baseline justify-between gap-x-3">
                       <h3 className="text-xl font-semibold text-mist-50">{edu.institution}</h3>
                       <span className="font-mono text-xs text-mist-500">
-                        {edu.start} — {edu.end}
+                        {edu.start} – {edu.end}
                       </span>
                     </div>
                     <p className="mt-1 text-mist-300">

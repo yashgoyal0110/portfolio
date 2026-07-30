@@ -13,7 +13,7 @@ export interface OpenSourceOrg {
 export const openSourceIntro = {
   heading: 'Open Source',
   blurb:
-    'I contribute upstream to projects I rely on — strengthening CI, observability and developer onboarding across the OWASP, CNCF and Palisadoes ecosystems.',
+    'I contribute upstream to projects I rely on, strengthening CI, observability and developer onboarding across the OWASP, CNCF and Palisadoes ecosystems.',
   dashboard: { label: 'PR Dashboard', href: 'https://github.com/yashgoyal0110' },
 }
 
@@ -23,7 +23,7 @@ export const openSource: OpenSourceOrg[] = [
     org: 'OWASP Nest',
     about: 'The OWASP community’s project & contributor hub.',
     contributions: [
-      'Enhanced the frontend — adding new features and improving the UI for a better user experience.',
+      'Enhanced the frontend with new features and UI improvements for a better user experience.',
       'Implemented Django models for new features, with test files ensuring reliability and maintainability.',
       'Built SlackBot commands to improve automation and team collaboration.',
       'Added schema validations and removed unnecessary code for data integrity and a cleaner codebase.',

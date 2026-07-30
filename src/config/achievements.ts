@@ -15,7 +15,7 @@ export interface Achievement {
 export const achievements: Achievement[] = [
   {
     id: 'gdg-lead',
-    title: 'GDG on Campus — Lead',
+    title: 'GDG on Campus Lead',
     detail:
       'Led flagship tech events, workshops and community initiatives, strengthening the campus developer ecosystem in collaboration with Google’s GDG network.',
     year: '2024',
@@ -24,7 +24,7 @@ export const achievements: Achievement[] = [
   },
   {
     id: 'icpc',
-    title: 'ICPC Prelims — All India Rank 1200',
+    title: 'ICPC Prelims: All India Rank 1200',
     detail:
       'Ranked 1200 nationally in the ICPC preliminary round, competing in algorithmic problem solving.',
     year: '2023',
