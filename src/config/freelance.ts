@@ -26,7 +26,7 @@ export const freelanceIntro = {
   eyebrow: 'Freelance Portfolio',
   title: 'Products I design, build and ship end-to-end',
   lede:
-    'Full-stack products taken from an empty repo to a live, HTTPS-secured deployment — ' +
+    'Full-stack products taken from an empty repo to a live, HTTPS-secured deployment: ' +
     'AI-backed SaaS, internal tooling and customer-facing platforms. Every project below ' +
     'is running in production right now; press play on any reel to see the real thing.',
   stats: [
@@ -43,9 +43,9 @@ export const freelanceProjects: FreelanceProject[] = [
     name: 'Axon',
     tagline: 'WhatsApp automation your team edits without a developer.',
     description:
-      'Businesses lose customers to unanswered WhatsApp messages, and the questions are nearly always the same. Axon lets teams design their conversation visually on a drag-and-drop canvas, publish it to a live number, and let AI answer anything the script missed — inside a persona they define. Non-technical staff update the bot in minutes.',
+      'Businesses lose customers to unanswered WhatsApp messages, and the questions are nearly always the same. Axon lets teams design their conversation visually on a drag-and-drop canvas, publish it to a live number, and let AI answer anything the script missed, inside a persona they define. Non-technical staff update the bot in minutes.',
     highlights: [
-      'Drag-and-drop flow builder — no developer needed to change a reply',
+      'Drag-and-drop flow builder, so no developer is needed to change a reply',
       'Shared team inbox with human handoff mid-conversation',
       'Analytics that show exactly which question loses customers',
       'Built-in simulator runs the real bot with no WhatsApp account, so clients test before paying for Meta or Twilio setup',
@@ -67,7 +67,7 @@ export const freelanceProjects: FreelanceProject[] = [
       'AI document analysis with automatic field extraction and categorisation',
       'Structured, searchable transaction history replacing manual entry',
       'Containerised with Docker Compose, deployed behind Caddy with HTTPS and access protection',
-      'Fully self-hosted — sensitive business data stays under the owner’s control',
+      'Fully self-hosted, so sensitive business data stays under the owner’s control',
     ],
     stack: ['Next.js', 'PostgreSQL', 'Prisma', 'Gemini', 'Docker Compose', 'Caddy'],
     video: '/ledgernest.mp4',
@@ -81,7 +81,7 @@ export const freelanceProjects: FreelanceProject[] = [
     name: 'Distiq',
     tagline: 'An AI sales-intelligence CRM for B2B distribution teams.',
     description:
-      'A production-ready CRM built for distribution sales teams. Reps enrich account data, manage leads, track opportunities, monitor pipeline activity and coordinate follow-ups from a single workspace — with demo-ready accounts and realistic sample data so a client can walk the product on day one.',
+      'A production-ready CRM built for distribution sales teams. Reps enrich account data, manage leads, track opportunities, monitor pipeline activity and coordinate follow-ups from a single workspace, with demo-ready accounts and realistic sample data so a client can walk the product on day one.',
     highlights: [
       'Lead, opportunity and pipeline tracking in one workspace',
       'Account enrichment and AI-assisted sales intelligence',
@@ -100,9 +100,9 @@ export const freelanceProjects: FreelanceProject[] = [
     name: 'AstraMail',
     tagline: 'A cluttered Gmail inbox, turned into a decision-ready workspace.',
     description:
-      'Users sign in with Google, grant read-only access, and every message runs through an AI triage engine that assigns priority, category and sentiment, writes a one-line summary, and flags whether action is required along with the suggested next step — so you know what to open first without reading a single full email.',
+      'Users sign in with Google, grant read-only access, and every message runs through an AI triage engine that assigns priority, category and sentiment, writes a one-line summary, and flags whether action is required along with the suggested next step, so you know what to open first without reading a single full email.',
     highlights: [
-      'Read-only Google OAuth — the inbox is never written to',
+      'Read-only Google OAuth, so the inbox is never written to',
       'AI triage: priority, category, sentiment, one-line summary and next step',
       'Structured-JSON contract with a deterministic fallback, so the product never breaks when the model does',
       'Per-account AI quota metering and admin overrides for cost control',
@@ -125,7 +125,7 @@ export const freelanceProjects: FreelanceProject[] = [
       'Dashboard for locations, services and pricing',
       'Public, customer-facing catalog pages',
       'QR-code sharing for print, storefront and social',
-      'Update once — every shared link reflects it instantly',
+      'Update once and every shared link reflects it instantly',
     ],
     stack: ['Next.js', 'PostgreSQL', 'Prisma', 'Docker', 'Caddy'],
     video: '/servicedock.mp4',
@@ -139,14 +139,15 @@ export const freelanceProjects: FreelanceProject[] = [
     name: 'VaultRAG',
     tagline: 'Private document Q&A running entirely on the edge.',
     description:
-      'A multi-tenant, privacy-first document Q&A platform running entirely on Cloudflare’s edge with no third-party AI providers — documents never leave the network they are hosted on. A complete RAG pipeline handles PDF ingestion, sentence-aware chunking, vector search and inference.',
+      'A multi-tenant, privacy-first document Q&A platform running entirely on Cloudflare’s edge with no third-party AI providers, so documents never leave the network they are hosted on. A complete RAG pipeline handles PDF ingestion, sentence-aware chunking, vector search and inference.',
     highlights: [
-      'No third-party AI providers — inference runs on Cloudflare Workers AI',
+      'No third-party AI providers, since inference runs on Cloudflare Workers AI',
       '~25 chunks processed per document in under 60 seconds',
       'Sub-second responses on cached queries',
       'Multi-tenant isolation with observability via AI Gateway',
     ],
     stack: ['TypeScript', 'Workers AI', 'Llama 3.1', 'Vectorize', 'R2', 'D1'],
+    video: '/vaultrag.mp4',
     liveUrl: 'https://vaultrag-frontend.pages.dev/',
     repoUrl: 'https://github.com/yashgoyal0110/vaultRAG',
     accent: '#fb7185',

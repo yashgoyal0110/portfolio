@@ -339,9 +339,9 @@ function ContactCta() {
         <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-accent-500/25 blur-3xl" />
         <h2 className="relative text-3xl font-semibold sm:text-4xl">Have something to build?</h2>
         <p className="relative mx-auto mt-4 max-w-xl text-mist-400">
-          I take products from first sketch to a live, monitored deployment — design, backend,
-          infrastructure and the AI layer in between. Tell me what you need and I’ll tell you
-          exactly how I’d ship it.
+          I take products from first sketch to a live, monitored deployment, covering design,
+          backend, infrastructure and the AI layer in between. Tell me what you need and I’ll tell
+          you exactly how I’d ship it.
         </p>
         <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
           <a href={`mailto:${email}`} className="btn-primary">
