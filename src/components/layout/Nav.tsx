@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Command, Menu, X } from 'lucide-react'
 import { navItems } from '@/config/navigation'
-import { profile } from '@/config/profile'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
+import { Avatar } from '@/components/ui/Avatar'
 import { cn } from '@/lib/cn'
 
 interface NavProps {
@@ -16,11 +16,6 @@ export function Nav({ onOpenRecruiter }: NavProps) {
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 })
 
-  const initials = profile.name
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-
   return (
     <>
       {/* scroll progress */}
@@ -31,13 +26,13 @@ export function Nav({ onOpenRecruiter }: NavProps) {
 
       <header className="fixed inset-x-0 top-0 z-40">
         <nav className="container-px flex items-center justify-between py-4">
-          {/* monogram */}
+          {/* headshot */}
           <a
             href="#home"
-            className="glass flex h-10 w-10 items-center justify-center rounded-xl font-display text-sm font-bold text-mist-50"
+            className="block rounded-full transition-transform duration-300 hover:scale-105"
             aria-label="Home"
           >
-            {initials}
+            <Avatar className="h-10 w-10" />
           </a>
 
           {/* desktop links */}

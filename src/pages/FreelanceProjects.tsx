@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowUpRight, Expand, Mail, Play, X } from 'lucide-react'
 import { Github } from '@/components/ui/icons'
+import { Avatar } from '@/components/ui/Avatar'
 import { Reveal } from '@/components/ui/Reveal'
 import { profile } from '@/config/profile'
 import { email } from '@/config/socials'
@@ -51,21 +52,16 @@ export default function FreelanceProjects() {
  *  Chrome
  * ------------------------------------------------------------------ */
 function TopBar() {
-  const initials = profile.name
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-
   return (
     <header className="fixed inset-x-0 top-0 z-40">
       <nav className="container-px flex items-center justify-between py-4">
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="glass flex h-10 w-10 items-center justify-center rounded-xl font-display text-sm font-bold text-mist-50"
+            className="block rounded-full transition-transform duration-300 hover:scale-105"
             aria-label="Back to portfolio"
           >
-            {initials}
+            <Avatar className="h-10 w-10" />
           </Link>
           <div className="hidden sm:block">
             <div className="font-display text-sm font-semibold text-mist-50">{profile.name}</div>
