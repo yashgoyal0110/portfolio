@@ -219,10 +219,9 @@ function ProjectVideo({ project, onExpand }: { project: FreelanceProject; onExpa
       />
       {/* bottom fade into the card body */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-ink-850 to-transparent" />
-      <div
-        className="pointer-events-none absolute inset-0 ring-1 ring-inset"
-        style={{ boxShadow: `inset 0 0 80px -30px ${project.accent}` }}
-      />
+      {/* neutral bezel: hairline top highlight, soft vignette, no colour cast */}
+      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.10),inset_0_0_90px_-30px_rgba(0,0,0,0.9)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-ink-600/50" />
 
       <button
         type="button"
