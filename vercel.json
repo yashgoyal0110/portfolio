@@ -1,7 +1,6 @@
 {
     "rewrites": [
         {
-            "comment": "SPA catch-all, but never shadow /_vercel/* — that's where Vercel serves the Web Analytics script from.",
             "source": "/((?!_vercel/).*)",
             "destination": "/index.html"
         }
