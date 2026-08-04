@@ -21,10 +21,10 @@ export function Experience() {
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-accent-500/60 via-ink-600 to-transparent sm:left-[9px]" />
 
         <div className="space-y-5">
-          {experience.map((exp, i) => {
+          {experience.map((exp) => {
             const isOpen = open === exp.id
             return (
-              <Reveal key={exp.id} delay={i * 0.05}>
+              <Reveal key={exp.id}>
                 <div className="relative pl-9 sm:pl-12">
                   {/* node */}
                   <span className="absolute left-0 top-6 flex h-4 w-4 items-center justify-center">

@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
-import { useMagnetic } from '@/hooks/useMagnetic'
 import { cn } from '@/lib/cn'
 
-interface MagneticButtonProps {
+interface ButtonProps {
   children: ReactNode
   href?: string
   onClick?: () => void
@@ -13,8 +12,8 @@ interface MagneticButtonProps {
   ariaLabel?: string
 }
 
-/** Pill button with magnetic hover. Renders <a> when href is given. */
-export function MagneticButton({
+/** Pill button. Renders an <a> when href is given, otherwise a <button>. */
+export function Button({
   children,
   href,
   onClick,
@@ -23,17 +22,13 @@ export function MagneticButton({
   download,
   external,
   ariaLabel,
-}: MagneticButtonProps) {
-  const { ref, onMouseMove, onMouseLeave } = useMagnetic<HTMLAnchorElement & HTMLButtonElement>(0.25)
+}: ButtonProps) {
   const cls = cn(variant === 'primary' ? 'btn-primary' : 'btn-ghost', className)
 
   if (href) {
     return (
       <a
-        ref={ref}
         href={href}
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
         className={cls}
         aria-label={ariaLabel}
         download={download}
@@ -46,15 +41,7 @@ export function MagneticButton({
   }
 
   return (
-    <button
-      ref={ref}
-      type="button"
-      onClick={onClick}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      className={cls}
-      aria-label={ariaLabel}
-    >
+    <button type="button" onClick={onClick} className={cls} aria-label={ariaLabel}>
       {children}
     </button>
   )

@@ -37,7 +37,7 @@ export const profile: Profile = {
     'shipping product backends, taming Kubernetes clusters, and wiring up observability so things stay online at 3am.',
   about: [
     'I’m an engineer who is happiest where product, infrastructure and hardware meet. My range is deliberate: I’ve driven real-time robotics control loops, architected backend services that move real money through ledgers and payouts, and operated the Kubernetes clusters that keep production apps online.',
-    'Right now I’m a founding engineer at a robotics startup, building a real-time bimanual teleoperation system with 100 Hz control loops hardened against lossy networks, and owning its data & observability pipeline. Before that I was the primary technical engineer keeping 50+ customers’ apps online across ~15 clusters, and I led end-to-end development of an inventory, ledger and payout platform in Spring Boot.',
+    'Right now I’m a founding engineer at a robotics startup, building a real-time bimanual teleoperation system hardened against lossy networks, and owning its data & observability pipeline. Before that I was the primary technical engineer keeping 50+ customers’ apps online across ~15 clusters, and I led end-to-end development of an inventory, ledger and payout platform in Spring Boot.',
     'I care about the unglamorous parts: reliability, observability, clean migrations. That’s what keeps software trustworthy. Outside of work I contribute upstream to open source (OWASP, LitmusChaos, Palisadoes) and build things end-to-end, most recently Axon, a multi-tenant WhatsApp automation platform with a drag-and-drop flow builder.',
   ],
   philosophy:
@@ -46,10 +46,11 @@ export const profile: Profile = {
     'Real-time robotics & teleoperation, LLM-backed product systems, and distributed reliability.',
   interests: ['Robotics & teleoperation', 'Distributed systems', 'Edge & serverless', 'Observability', 'Competitive programming'],
   resumeUrl: '/yashgoyalcv.pdf',
+  /** One headline number per area of the CV: robotics, infra, product, open source. */
   stats: [
-    { label: 'Real-time control loop', value: '100 Hz' },
-    { label: 'Production customers supported', value: '50+' },
-    { label: 'Uptime maintained', value: '99.9%' },
+    { label: 'Robot teleoperation at mrfood.ai', value: 'Real-time' },
+    { label: 'Production customers at Emergent', value: '50+' },
+    { label: 'Invoice work cut at Successship', value: '−40%' },
     { label: 'Open-source orgs contributed to', value: '3' },
   ],
 }

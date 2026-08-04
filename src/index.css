@@ -91,7 +91,7 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 will-change-transform;
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium;
 }
 
 /* ------------------------------------------------------------------ *
@@ -125,26 +125,17 @@
     @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-accent-300;
   }
 
-  /* Magnetic / interactive pill button */
+  /* Pill button. Flat by design — no coloured glow bleeding onto the page. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 will-change-transform;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium;
   }
   .btn-primary {
     @apply btn text-ink-950;
     background: linear-gradient(180deg, var(--color-accent-300), var(--color-accent-500));
-    box-shadow: 0 10px 30px -10px var(--color-accent-500);
-  }
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px -12px var(--color-accent-500);
+    box-shadow: 0 2px 8px -4px rgba(0, 0, 0, 0.5);
   }
   .btn-ghost {
     @apply btn glass text-mist-200;
-  }
-  .btn-ghost:hover {
-    color: var(--color-mist-50);
-    border-color: color-mix(in oklab, var(--color-accent-400) 60%, transparent);
-    transform: translateY(-2px);
   }
 }
 

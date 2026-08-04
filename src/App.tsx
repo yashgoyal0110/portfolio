@@ -26,10 +26,10 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Skills />
         <Experience />
         <Projects />
         <OpenSource />
+        <Skills />
         <Education />
         <Contact />
       </main>

@@ -25,15 +25,15 @@ export function Projects() {
       intro="A few systems I designed and shipped end-to-end. Open one to see the problem, architecture and impact."
     >
       <div className="grid gap-5 md:grid-cols-2">
-        {projects.map((p, i) => (
-          <Reveal key={p.id} delay={i * 0.06}>
+        {projects.map((p) => (
+          <Reveal key={p.id}>
             <button
               type="button"
               onClick={() => setActive(p)}
-              className="card group relative h-full w-full overflow-hidden p-7 text-left"
+              className="card group relative h-full w-full overflow-hidden p-7 text-left transition-colors hover:border-accent-400/40"
             >
               <div
-                className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-50"
+                className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-25 blur-3xl"
                 style={{ background: p.accent }}
               />
               <div className="flex items-center justify-between">
@@ -48,7 +48,7 @@ export function Projects() {
 
               <h3 className="mt-5 flex items-center gap-2 text-2xl font-semibold text-mist-50">
                 {p.name}
-                <ArrowUpRight className="h-5 w-5 text-mist-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-mist-50" />
+                <ArrowUpRight className="h-5 w-5 text-mist-500 transition-colors group-hover:text-mist-50" />
               </h3>
               <p className="mt-2 text-mist-400">{p.tagline}</p>
 
@@ -96,10 +96,10 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             role="dialog"
             aria-modal="true"
             aria-label={project.name}
-            initial={{ y: 40, opacity: 0, scale: 0.98 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: 20, opacity: 0, scale: 0.98 }}
-            transition={{ type: 'spring', stiffness: 280, damping: 30 }}
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 8, opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             className="card relative z-10 max-h-[88vh] w-full max-w-2xl overflow-y-auto p-7 sm:p-9"
           >
             <div

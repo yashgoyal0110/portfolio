@@ -25,8 +25,8 @@ export function OpenSource() {
       </Reveal>
 
       <div className="grid gap-5 md:grid-cols-3">
-        {openSource.map((org, i) => (
-          <Reveal key={org.id} delay={i * 0.07}>
+        {openSource.map((org) => (
+          <Reveal key={org.id}>
             <a
               href={org.href}
               target="_blank"

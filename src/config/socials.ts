@@ -1,5 +1,5 @@
 import { Mail, FileText, Phone } from 'lucide-react'
-import { Github, Linkedin } from '@/components/ui/icons'
+import { Github, Linkedin, XLogo } from '@/components/ui/icons'
 import type { IconType } from '@/components/ui/icons'
 
 export interface Social {
@@ -31,6 +31,14 @@ export const socials: Social[] = [
     handle: 'yashgoyal0110',
     href: 'https://www.linkedin.com/in/yashgoyal0110',
     icon: Linkedin,
+    primary: true,
+  },
+  {
+    id: 'x',
+    label: 'X',
+    handle: 'yashgoyal0110',
+    href: 'https://x.com/yashgoyal0110',
+    icon: XLogo,
     primary: true,
   },
   {

@@ -1,23 +1,63 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Check, Send } from 'lucide-react'
+import { AlertCircle, Check, Loader2, Send } from 'lucide-react'
 import { profile } from '@/config/profile'
 import { socials, email } from '@/config/socials'
 import { Section } from '@/components/ui/Section'
 
+type Status = 'idle' | 'sending' | 'sent' | 'error'
+
+/** Hands the message off to the visitor's mail client. Last-resort fallback. */
+function openMailClient(form: { name: string; email: string; message: string }) {
+  const subject = encodeURIComponent(`Portfolio: message from ${form.name || 'a recruiter'}`)
+  const body = encodeURIComponent(
+    `${form.message}\n\n${form.name}${form.email ? ` (${form.email})` : ''}`,
+  )
+  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`
+}
+
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * Delivers straight to the inbox via Web3Forms (same key as the visitor
+   * ping), so the button works even when the visitor has no mail client set
+   * up. Falls back to mailto: if the key is missing or the request fails.
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio — message from ${form.name || 'a recruiter'}`)
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name}${form.email ? ` (${form.email})` : ''}`,
-    )
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`
-    setSent(true)
-    setTimeout(() => setSent(false), 4000)
+    if (status === 'sending') return
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
+    if (!accessKey) {
+      openMailClient(form)
+      return
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Portfolio: message from ${form.name || 'a visitor'}`,
+          from_name: 'Portfolio contact form',
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          botcheck: '', // Web3Forms honeypot, leave empty
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data?.success) throw new Error(data?.message ?? 'send failed')
+
+      setStatus('sent')
+      setForm({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 6000)
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -51,19 +91,48 @@ export function Contact() {
                 className="w-full resize-none rounded-xl border border-ink-700/70 bg-ink-900/60 px-4 py-3 text-sm text-mist-100 outline-none transition-colors placeholder:text-mist-600 focus:border-accent-400/60"
               />
             </div>
-            <button type="submit" className="btn-primary w-full">
-              <AnimatePresence mode="wait" initial={false}>
-                {sent ? (
-                  <motion.span key="ok" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-flex items-center gap-2">
-                    <Check className="h-4 w-4" /> Opening your mail client…
-                  </motion.span>
-                ) : (
-                  <motion.span key="send" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-flex items-center gap-2">
-                    <Send className="h-4 w-4" /> Send message
-                  </motion.span>
-                )}
-              </AnimatePresence>
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="btn-primary w-full disabled:opacity-70"
+            >
+              {status === 'sending' && (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" /> Sending…
+                </>
+              )}
+              {status === 'sent' && (
+                <>
+                  <Check className="h-4 w-4" /> Message sent
+                </>
+              )}
+              {(status === 'idle' || status === 'error') && (
+                <>
+                  <Send className="h-4 w-4" /> Send message
+                </>
+              )}
             </button>
+
+            {status === 'sent' && (
+              <p className="flex items-center gap-2 text-xs text-emerald-400">
+                <Check className="h-3.5 w-3.5 shrink-0" />
+                Thanks, it landed in my inbox. I'll reply to {form.email || 'you'} shortly.
+              </p>
+            )}
+
+            {status === 'error' && (
+              <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-mist-400">
+                <AlertCircle className="h-3.5 w-3.5 shrink-0 text-[#febc2e]" />
+                That didn't go through.
+                <button
+                  type="button"
+                  onClick={() => openMailClient(form)}
+                  className="cursor-pointer text-accent-300 underline underline-offset-2"
+                >
+                  Send it by email instead
+                </button>
+              </p>
+            )}
           </form>
         </div>
 
@@ -78,7 +147,7 @@ export function Contact() {
               download={s.id === 'resume' ? 'Yash-Goyal-Resume.pdf' : undefined}
               className="card group flex items-center gap-4 p-4 transition-colors hover:border-accent-400/40"
             >
-              <div className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-accent-300 transition-transform duration-300 group-hover:scale-110">
+              <div className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-accent-300">
                 <s.icon className="h-5 w-5" />
               </div>
               <div className="min-w-0">

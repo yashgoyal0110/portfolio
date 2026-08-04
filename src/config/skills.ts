@@ -1,3 +1,6 @@
+import { Cloud, Code2, Database, Layout, Server, Sparkles } from 'lucide-react'
+import type { IconType } from '@/components/ui/icons'
+
 export type SkillCategory =
   | 'Languages'
   | 'Frontend'
@@ -16,13 +19,21 @@ export interface Skill {
   note?: string
 }
 
-export const skillCategories: { id: SkillCategory; blurb: string }[] = [
-  { id: 'Languages', blurb: 'Core programming languages' },
-  { id: 'Frontend', blurb: 'Interfaces & client apps' },
-  { id: 'Backend', blurb: 'Services & APIs' },
-  { id: 'Databases', blurb: 'Storage & state' },
-  { id: 'Cloud & DevOps', blurb: 'Ship, run & observe' },
-  { id: 'AI / ML', blurb: 'LLM & retrieval systems' },
+export interface SkillCategoryMeta {
+  id: SkillCategory
+  blurb: string
+  /** Card glow + icon tint. */
+  accent: string
+  icon: IconType
+}
+
+export const skillCategories: SkillCategoryMeta[] = [
+  { id: 'Cloud & DevOps', blurb: 'Ship, run & observe', accent: '#a5b4ff', icon: Cloud },
+  { id: 'Languages', blurb: 'Core programming languages', accent: '#7c8bff', icon: Code2 },
+  { id: 'Backend', blurb: 'Services & APIs', accent: '#34d399', icon: Server },
+  { id: 'Databases', blurb: 'Storage & state', accent: '#fbbf24', icon: Database },
+  { id: 'AI / ML', blurb: 'LLM & retrieval systems', accent: '#c084fc', icon: Sparkles },
+  { id: 'Frontend', blurb: 'Interfaces & client apps', accent: '#4fd1e0', icon: Layout },
 ]
 
 export const skills: Skill[] = [

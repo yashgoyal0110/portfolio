@@ -1,12 +1,13 @@
-import { Suspense, lazy } from 'react'
-import { motion } from 'framer-motion'
+import { Suspense, lazy, useState } from 'react'
 import { ArrowDown, FileText, Mail, MapPin } from 'lucide-react'
-import { Github, Linkedin } from '@/components/ui/icons'
+import type { HeroTopic } from '@/components/three/HeroScene'
+import { Github, Linkedin, XLogo } from '@/components/ui/icons'
 import { profile } from '@/config/profile'
 import { socials } from '@/config/socials'
 import { experience } from '@/config/experience'
 import { useTypewriter } from '@/hooks/useTypewriter'
-import { MagneticButton } from '@/components/ui/MagneticButton'
+import { Button } from '@/components/ui/Button'
+import { cn } from '@/lib/cn'
 
 const HeroScene = lazy(() => import('@/components/three/HeroScene'))
 
@@ -19,27 +20,27 @@ const current = experience.find((e) => e.end === 'Present')
 
 export function Hero() {
   const role = useTypewriter(profile.roles)
+  const [topic, setTopic] = useState<HeroTopic | null>(null)
 
   return (
     <section id="home" className="relative min-h-[100svh] overflow-hidden">
-      {/* 3D backdrop */}
-      <div className="absolute inset-0 -z-10">
+      {/* Interactive 3D backdrop. It sits at z-0 rather than a negative z-index
+          on purpose: a negative z-index paints below the <section> box, which
+          then hit-tests above it and swallows every pointer event. */}
+      <div className="absolute inset-0 z-0">
         <Suspense fallback={<div className="h-full w-full bg-ink-950" />}>
-          <HeroScene />
+          <HeroScene onFocusTopic={setTopic} />
         </Suspense>
       </div>
 
-      {/* ambient layers */}
-      <div className="grid-fade pointer-events-none absolute inset-0 -z-10 opacity-60" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-ink-950/30 via-transparent to-ink-950" />
+      {/* ambient layers — later in DOM order, so they still paint over the canvas */}
+      <div className="grid-fade pointer-events-none absolute inset-0 z-0 opacity-60" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-ink-950/30 via-transparent to-ink-950" />
 
-      <div className="container-px flex min-h-[100svh] flex-col justify-center pt-28 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl"
-        >
+      {/* click-through by default so the constellation behind stays reachable;
+          anything interactive re-enables pointer events on itself */}
+      <div className="container-px pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-16">
+        <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-mist-300">
               <span className="relative flex h-2 w-2">
@@ -64,7 +65,7 @@ export function Hero() {
           </div>
 
           {current && (
-            <div className="mt-4 inline-flex items-center gap-2 text-sm text-mist-400">
+            <div className="mt-5 inline-flex items-center gap-2 text-sm text-mist-400">
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-mist-500">Now</span>
               <span className="h-3 w-px bg-ink-600" />
               <span className="text-mist-200">{current.role}</span>
@@ -76,37 +77,59 @@ export function Hero() {
             {profile.intro}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <MagneticButton href={profile.resumeUrl} variant="primary" download="Yash-Goyal-Resume.pdf">
+          <div className="pointer-events-auto mt-9 flex flex-wrap items-center gap-3">
+            <Button href={profile.resumeUrl} variant="primary" download="Yash-Goyal-Resume.pdf">
               <FileText className="h-4 w-4" />
               Résumé
-            </MagneticButton>
-            <MagneticButton href="#contact">
+            </Button>
+            <Button href="#contact">
               <Mail className="h-4 w-4" />
               Get in touch
-            </MagneticButton>
-            <MagneticButton href={social('github')} external ariaLabel="GitHub">
+            </Button>
+            <Button href={social('github')} external ariaLabel="GitHub">
               <Github className="h-4 w-4" />
               GitHub
-            </MagneticButton>
-            <MagneticButton href={social('linkedin')} external ariaLabel="LinkedIn">
+            </Button>
+            <Button href={social('linkedin')} external ariaLabel="LinkedIn">
               <Linkedin className="h-4 w-4" />
               LinkedIn
-            </MagneticButton>
+            </Button>
+            <Button href={social('x')} external ariaLabel="X">
+              <XLogo className="h-4 w-4" />
+              X
+            </Button>
           </div>
-        </motion.div>
+        </div>
 
-        {/* scroll hint */}
-        <motion.a
-          href="#about"
-          aria-label="Scroll to about"
-          className="mt-16 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.2em] text-mist-500"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ArrowDown className="h-4 w-4" />
-          Scroll to explore
-        </motion.a>
+        <div className="mt-16 flex flex-wrap items-center justify-between gap-4">
+          {/* scroll hint */}
+          <a
+            href="#about"
+            aria-label="Scroll to about"
+            className="pointer-events-auto inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.2em] text-mist-500 transition-colors hover:text-mist-200"
+          >
+            <ArrowDown className="h-4 w-4" />
+            Scroll to explore
+          </a>
+
+          {/* captions the focused constellation node, and hints that it's interactive */}
+          <div className="hidden items-center gap-2 font-mono text-[11px] text-mist-500 sm:flex">
+            <span
+              className={cn(
+                'h-1.5 w-1.5 rounded-full',
+                topic ? 'bg-accent-300' : 'bg-ink-600',
+              )}
+            />
+            {topic ? (
+              <span className="text-mist-200">
+                {topic.label}
+                <span className="ml-2 text-mist-500">click to open</span>
+              </span>
+            ) : (
+              <span>Hover the nodes to explore what I build</span>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   )

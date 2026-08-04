@@ -58,7 +58,7 @@ function TopBar() {
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="block rounded-full transition-transform duration-300 hover:scale-105"
+            className="block rounded-full"
             aria-label="Back to portfolio"
           >
             <Avatar className="h-10 w-10" />

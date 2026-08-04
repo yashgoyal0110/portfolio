@@ -27,11 +27,7 @@ export function Nav({ onOpenRecruiter }: NavProps) {
       <header className="fixed inset-x-0 top-0 z-40">
         <nav className="container-px flex items-center justify-between py-4">
           {/* headshot */}
-          <a
-            href="#home"
-            className="block rounded-full transition-transform duration-300 hover:scale-105"
-            aria-label="Home"
-          >
+          <a href="#home" className="block rounded-full" aria-label="Home">
             <Avatar className="h-10 w-10" />
           </a>
 
@@ -47,11 +43,7 @@ export function Nav({ onOpenRecruiter }: NavProps) {
                 )}
               >
                 {active === item.id && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-accent-300 to-accent-500"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
+                  <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-accent-300 to-accent-500" />
                 )}
                 {item.label}
               </a>
