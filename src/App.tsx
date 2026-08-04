@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { useVisitorPing } from '@/hooks/useVisitorPing'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
@@ -18,8 +19,7 @@ function App() {
 
   return (
     <div className="relative">
-      {/* ambient page glow */}
-      <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(60%_50%_at_50%_-10%,rgba(91,108,255,0.18),transparent_70%)]" />
+  <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(60%_50%_at_50%_-10%,rgba(91,108,255,0.18),transparent_70%)]" />
 
       <Nav onOpenRecruiter={() => setRecruiterOpen(true)} />
 
@@ -37,6 +37,9 @@ function App() {
       <Footer />
 
       <RecruiterMode open={recruiterOpen} onClose={() => setRecruiterOpen(false)} />
+      <Analytics
+        beforeSend={(event) => (new URL(event.url).pathname === '/' ? event : null)}
+      />
     </div>
   )
 }
