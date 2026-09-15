@@ -16,28 +16,29 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    id: 'mrfood',
-    company: 'mrfood.ai',
+    id: 'argon',
+    company: 'Argon Robotics',
     role: 'Founding Engineering Intern',
     location: 'USA (remote)',
     start: 'Jun 2026',
     end: 'Present',
     summary:
-      'Building the real-time teleoperation and data pipeline behind a bimanual robotics platform.',
+      'Building the real-time teleoperation, data and policy-training pipeline behind a bimanual robotics platform.',
     highlights: [
-      'Built the real-time bimanual teleoperation loop that drives two 6-DOF robotic arms from VR controllers, continuously solving operator hand motion into joint targets streamed straight to the hardware.',
-      'Enforced velocity and acceleration limits, jump rejection and hold-on-fault at the hardware boundary so the arms stay safe the moment operator input degrades.',
-      'Made teleoperation remote-resilient over lossy, high-latency links by abstracting operator input behind four interchangeable network transports, with per-frame packet-drop detection and self-healing CAN fault recovery.',
-      'Owned the data and observability pipeline: four concurrent video paths (browser WebRTC, cloud streaming and an isolated cloud recorder), plus arm and operator telemetry to BigQuery and RGBD capture to cloud storage via async sinks.',
-      'Stood up Prometheus and Grafana monitoring with Slack alerting, plus a LeRobot writer pushing training-ready datasets to HuggingFace.',
+      'Built a real-time bimanual teleoperation stack driving two 6-DOF AgileX PiPER arms from a Meta Quest, retargeting VR controller poses through a differential-IK solver into a 100 Hz SocketCAN control loop.',
+      'Guarded that loop with per-joint slew limiting, pose-jump rejection and hold-on-fault fallback, so the arms stay safe the moment operator input degrades.',
+      'Isolated video and recording into separate OS processes with shared-memory frame handoff so encoding can never stall the control loop, and sequence-numbered every controller frame to surface link drops.',
+      'Owned the robotics data & observability pipeline on GCP: concurrent real-time video feeds, cloud RTC to the operator dashboard, an out-of-process recorder with hardware-accelerated encoding, RGBD episodes archived to GCS, and arm/operator telemetry streamed to BigQuery.',
+      'Stood up Prometheus and Grafana dashboards with ~25 Slack alert rules covering CAN faults, thermals, camera health and operator-link drops.',
+      'Built an end-to-end data-to-deployment pipeline for bimanual manipulation: curated 500+ teleoperation episodes into LeRobot datasets on HuggingFace, then trained, benchmarked and deployed ACT and π0.5 VLA policies on the same PiPER arms used for collection.',
     ],
     impact: [
       { label: 'Robot arms driven', value: '2× 6-DOF' },
-      { label: 'Operator-to-arm control', value: 'Real-time' },
-      { label: 'Failover transports', value: '4' },
-      { label: 'Video & telemetry paths', value: '4' },
+      { label: 'Control loop', value: '100 Hz' },
+      { label: 'Teleop episodes curated', value: '500+' },
+      { label: 'Slack alert rules', value: '~25' },
     ],
-    stack: ['Python', 'Pinocchio', 'SocketCAN', 'WebRTC', 'BigQuery', 'GCS', 'Prometheus', 'Grafana', 'LeRobot'],
+    stack: ['Python', 'Pinocchio', 'SocketCAN', 'WebRTC', 'BigQuery', 'GCS', 'Prometheus', 'Grafana', 'LeRobot', 'HuggingFace'],
   },
   {
     id: 'emergent',

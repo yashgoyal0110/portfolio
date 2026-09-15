@@ -53,7 +53,7 @@ export const skills: Skill[] = [
   { name: 'Express', category: 'Backend', level: 4 },
   { name: 'NestJS', category: 'Backend', level: 4, usedIn: ['axon'], note: 'Multi-tenant conversation engine' },
   { name: 'Spring Boot', category: 'Backend', level: 4, usedIn: ['succesship'] as string[], note: 'Ledger, inventory & payout services' },
-  { name: 'WebRTC / Real-time', category: 'Backend', level: 3, usedIn: ['mrfood'], note: 'Low-latency teleop video & control transports' },
+  { name: 'WebRTC / Real-time', category: 'Backend', level: 3, usedIn: ['argon'], note: 'Low-latency teleop video & control transports' },
 
   // Databases
   { name: 'PostgreSQL', category: 'Databases', level: 4, usedIn: ['axon'], note: 'Double-entry accounting & workspace state' },
@@ -67,12 +67,12 @@ export const skills: Skill[] = [
   { name: 'Docker', category: 'Cloud & DevOps', level: 5, usedIn: ['axon', 'wanderlust'] },
   { name: 'AWS (EC2/ECR/ECS)', category: 'Cloud & DevOps', level: 4, usedIn: ['wanderlust'] },
   { name: 'Cloudflare', category: 'Cloud & DevOps', level: 4 },
-  { name: 'GCP (BigQuery / GCS)', category: 'Cloud & DevOps', level: 3, usedIn: ['mrfood', 'axon'], note: 'Telemetry & RGBD data sinks' },
+  { name: 'GCP (BigQuery / GCS)', category: 'Cloud & DevOps', level: 3, usedIn: ['argon', 'axon'], note: 'Telemetry & RGBD data sinks' },
   { name: 'CI/CD', category: 'Cloud & DevOps', level: 4 },
   { name: 'Nginx', category: 'Cloud & DevOps', level: 4 },
   { name: 'Linux', category: 'Cloud & DevOps', level: 4 },
   { name: 'OpenTelemetry', category: 'Cloud & DevOps', level: 3 },
-  { name: 'Prometheus / Grafana', category: 'Cloud & DevOps', level: 4, usedIn: ['mrfood'], note: 'Monitoring & Slack alerting' },
+  { name: 'Prometheus / Grafana', category: 'Cloud & DevOps', level: 4, usedIn: ['argon'], note: 'Monitoring & Slack alerting' },
 
   // AI / ML
   { name: 'LangChain', category: 'AI / ML', level: 3, usedIn: ['succesship'] },
@@ -80,4 +80,5 @@ export const skills: Skill[] = [
   { name: 'Gemini', category: 'AI / ML', level: 3, usedIn: ['axon'], note: 'Persona-scoped off-script fallback' },
   { name: 'RAG / Vector search', category: 'AI / ML', level: 3 },
   { name: 'OCR', category: 'AI / ML', level: 3, usedIn: ['succesship'] },
+  { name: 'VLA policies (ACT / π0.5)', category: 'AI / ML', level: 3, usedIn: ['argon'], note: 'Trained & benchmarked on real bimanual hardware, from LeRobot datasets to deployment' },
 ]
