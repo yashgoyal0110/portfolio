@@ -30,10 +30,11 @@ export const profile: Profile = {
   tagline: 'I build reliable, production-grade systems, from real-time robotics to multi-tenant SaaS.',
   location: 'Delhi, India',
   availability: 'Open to internships & full-time opportunities',
+  /** First entry is the lead line — set larger in the About section. */
   about: [
-    'I’m an engineer who is happiest where product, infrastructure and hardware meet. My range is deliberate: I’ve driven real-time robotics control loops, architected backend services that move real money through ledgers and payouts, and operated the Kubernetes clusters that keep production apps online.',
-    'Right now I’m a founding engineer at Argon Robotics, building a real-time bimanual teleoperation stack that drives two 6-DOF arms at 100 Hz, and owning the pipeline that turns the episodes it records into trained, deployed manipulation policies. Before that I was the primary technical engineer keeping 50+ customers’ apps online across ~15 clusters, and I led end-to-end development of an inventory, ledger and payout platform in Spring Boot.',
-    'I care about the unglamorous parts: reliability, observability, clean migrations. That’s what keeps software trustworthy. Outside of work I contribute upstream to open source (OWASP, LitmusChaos, Palisadoes) and build things end-to-end, most recently Axon, a multi-tenant WhatsApp automation platform with a drag-and-drop flow builder.',
+    'I’m happiest where product, infrastructure and hardware meet — real-time control loops, backend services that move real money, and the Kubernetes clusters keeping it all online.',
+    'Today I’m a founding engineer at Argon Robotics, driving two 6-DOF arms at 100 Hz and owning the pipeline that turns recorded episodes into deployed manipulation policies. Before that: 50+ customers’ apps online across ~15 clusters, and an inventory, ledger and payout platform built end-to-end in Spring Boot.',
+    'I care about the unglamorous parts — reliability, observability, clean migrations. Outside work I contribute upstream to OWASP, LitmusChaos and Palisadoes, most recently shipping Axon, a multi-tenant WhatsApp automation platform.',
   ],
   philosophy:
     'Make it correct, make it observable, then make it fast. Reliability is a feature.',

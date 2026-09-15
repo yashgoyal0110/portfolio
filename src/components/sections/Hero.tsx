@@ -100,7 +100,7 @@ export function Hero() {
                   href={current.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="pointer-events-auto text-accent-300 underline decoration-accent-300/30 underline-offset-4 transition-colors hover:text-accent-200 hover:decoration-accent-200/60"
+                  className="pointer-events-auto text-accent-300 transition-colors hover:text-accent-200"
                 >
                   @ {current.company}
                 </a>

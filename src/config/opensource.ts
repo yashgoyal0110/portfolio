@@ -14,7 +14,7 @@ export const openSourceIntro = {
   heading: 'Open Source',
   blurb:
     'I contribute upstream to projects I rely on, strengthening CI, observability and developer onboarding across the OWASP, CNCF and Palisadoes ecosystems.',
-  dashboard: { label: 'PR Dashboard', href: 'https://github.com/yashgoyal0110' },
+  dashboard: { label: 'PR Dashboard', href: 'https://pr.yashgoyal.sbs' },
 }
 
 export const openSource: OpenSourceOrg[] = [

@@ -23,7 +23,16 @@ export function About() {
       <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <Reveal className="space-y-5">
           {profile.about.map((p, i) => (
-            <p key={i} className="text-lg leading-relaxed text-mist-300">
+            <p
+              key={i}
+              /* lead line carries the section; the rest steps back so the eye
+                 lands somewhere definite instead of on a wall of equal text */
+              className={
+                i === 0
+                  ? 'text-xl leading-relaxed text-mist-100'
+                  : 'text-base leading-relaxed text-mist-400'
+              }
+            >
               {p}
             </p>
           ))}
