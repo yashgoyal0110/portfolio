@@ -21,7 +21,7 @@ export function Hero() {
       {/* Interactive 3D backdrop. It sits at z-0 rather than a negative z-index
           on purpose: a negative z-index paints below the <section> box, which
           then hit-tests above it and swallows every pointer event. */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 lg:left-[30%]">
         <Suspense fallback={<div className="h-full w-full bg-ink-950" />}>
           <HeroScene onFocusTopic={setTopic} />
         </Suspense>
@@ -33,7 +33,7 @@ export function Hero() {
 
       {/* click-through by default so the constellation behind stays reachable;
           anything interactive re-enables pointer events on itself */}
-      <div className="container-px pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-16">
+      <div className="container-px pointer-events-none relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-28">
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-2.5">
             <span className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-mist-300">
@@ -58,6 +58,10 @@ export function Hero() {
             <span className="cursor-blink text-accent-400">▍</span>
           </div>
 
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-mist-400">
+            {profile.tagline}
+          </p>
+
           {current && (
             <div className="mt-5 inline-flex items-center gap-2 text-sm text-mist-400">
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-mist-500">Now</span>
@@ -79,7 +83,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center justify-between gap-4">
+        <div className="container-px absolute inset-x-0 bottom-8 flex flex-wrap items-center justify-between gap-4">
           {/* scroll hint */}
           <a
             href="#about"
