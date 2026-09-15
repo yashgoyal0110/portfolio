@@ -29,33 +29,35 @@ export function About() {
           </p>
           <div className="mt-5 space-y-4 pl-5">
             {rest.map((p, i) => (
-              <p key={i} className="leading-relaxed text-mist-300">
+              <p key={i} className="text-lg leading-relaxed text-mist-300">
                 {p}
               </p>
             ))}
           </div>
         </Reveal>
 
-        <Reveal delay={0.1} className="space-y-4">
-          <div className="card p-6">
-            <div className="eyebrow mb-2">Philosophy</div>
-            <p className="text-mist-200">{profile.philosophy}</p>
-          </div>
-          <div className="card p-6">
-            <div className="eyebrow mb-2">Current focus</div>
-            <p className="text-mist-200">{profile.currentFocus}</p>
-          </div>
-          <div className="card p-6">
-            <div className="eyebrow mb-3">Interests</div>
-            <div className="flex flex-wrap gap-2">
-              {profile.interests.map((it) => (
-                <span
-                  key={it}
-                  className="rounded-full border border-ink-600/70 bg-ink-800/60 px-3 py-1 text-xs text-mist-300"
-                >
-                  {it}
-                </span>
-              ))}
+        <Reveal delay={0.1}>
+          <div className="card flex h-full flex-col divide-y divide-ink-700/60">
+            <div className="flex-1 p-6">
+              <div className="eyebrow mb-2">Philosophy</div>
+              <p className="text-mist-200">{profile.philosophy}</p>
+            </div>
+            <div className="flex-1 p-6">
+              <div className="eyebrow mb-2">Current focus</div>
+              <p className="text-mist-200">{profile.currentFocus}</p>
+            </div>
+            <div className="flex-1 p-6">
+              <div className="eyebrow mb-3">Interests</div>
+              <div className="flex flex-wrap gap-2">
+                {profile.interests.map((it) => (
+                  <span
+                    key={it}
+                    className="rounded-full border border-ink-600/70 bg-ink-800/60 px-3 py-1 text-xs text-mist-300"
+                  >
+                    {it}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

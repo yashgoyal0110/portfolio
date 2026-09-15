@@ -32,9 +32,9 @@ export const profile: Profile = {
   availability: 'Open to internships & full-time opportunities',
   /** First entry is the lead line — set larger in the About section. */
   about: [
-    'I’m happiest where product, infrastructure and hardware meet — real-time control loops, backend services that move real money, and the Kubernetes clusters keeping it all online.',
+    'I’m happiest where product, infrastructure and hardware meet: real-time control loops, backend services that move real money, and the Kubernetes clusters keeping it all online.',
     'Today I’m a founding engineer at Argon Robotics, driving two 6-DOF arms at 100 Hz and owning the pipeline that turns recorded episodes into deployed manipulation policies. Before that: 50+ customers’ apps online across ~15 clusters, and an inventory, ledger and payout platform built end-to-end in Spring Boot.',
-    'I care about the unglamorous parts — reliability, observability, clean migrations. Outside work I contribute upstream to OWASP, LitmusChaos and Palisadoes, most recently shipping Axon, a multi-tenant WhatsApp automation platform.',
+    'I care about the unglamorous parts: reliability, observability, clean migrations. Outside work I contribute upstream to OWASP, LitmusChaos and Palisadoes, most recently shipping Axon, a multi-tenant WhatsApp automation platform.',
   ],
   philosophy:
     'Make it correct, make it observable, then make it fast. Reliability is a feature.',

@@ -15,7 +15,7 @@ export default function FreelanceProjects() {
 
   useEffect(() => {
     const previous = document.title
-    document.title = `Freelance Work — ${profile.name}`
+    document.title = `Freelance Work | ${profile.name}`
     return () => {
       document.title = previous
     }
