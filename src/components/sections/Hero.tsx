@@ -3,6 +3,7 @@ import { ArrowDown, FileText, Mail, MapPin } from 'lucide-react'
 import type { HeroTopic } from '@/components/three/HeroScene'
 import { profile } from '@/config/profile'
 import { experience } from '@/config/experience'
+import { skills } from '@/config/skills'
 import { useTypewriter } from '@/hooks/useTypewriter'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
@@ -11,6 +12,9 @@ const HeroScene = lazy(() => import('@/components/three/HeroScene'))
 
 /** Current role = the experience still marked "Present". */
 const current = experience.find((e) => e.end === 'Present')
+
+/** Deepest skills only — a compact signal of the stack, not a second Skills section. */
+const coreStack = skills.filter((s) => s.level === 5).map((s) => s.name)
 
 export function Hero() {
   const role = useTypewriter(profile.roles)
@@ -80,6 +84,16 @@ export function Hero() {
               <Mail className="h-4 w-4" />
               Get in touch
             </Button>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-mist-500">
+            <span className="uppercase tracking-[0.18em] text-mist-600">Working with</span>
+            {coreStack.map((name) => (
+              <span key={name} className="flex items-center gap-3">
+                <span className="h-1 w-1 rounded-full bg-ink-600" />
+                <span className="text-mist-400">{name}</span>
+              </span>
+            ))}
           </div>
         </div>
 
