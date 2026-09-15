@@ -85,6 +85,9 @@ interface NodeDef extends HeroTopic {
 function Nodes({ animate, onFocusTopic }: { animate: boolean } & SceneProps) {
   const group = useRef<THREE.Group>(null)
   const meshes = useRef<Record<string, THREE.Group | null>>({})
+  /** One telemetry pulse per link, travelling node -> core. */
+  const pulses = useRef<Record<string, THREE.Mesh | null>>({})
+  const phases = useRef<number[]>(TOPICS.map((_, i) => i / TOPICS.length))
   const [hovered, setHovered] = useState<string | null>(null)
 
   const nodes = useMemo<NodeDef[]>(() => {
@@ -113,6 +116,21 @@ function Nodes({ animate, onFocusTopic }: { animate: boolean } & SceneProps) {
       const target = hovered === n.id ? 1.35 : 1
       m.scale.lerp(new THREE.Vector3(target, target, target), Math.min(1, delta * 10))
     }
+
+    // Each link carries a packet inward: telemetry arriving at the control
+    // plane. Hovering a node speeds its link up, so the hover reads as "live".
+    if (!animate) return
+    nodes.forEach((n, i) => {
+      const p = pulses.current[n.id]
+      if (!p) return
+      const speed = hovered === n.id ? 0.85 : 0.28
+      phases.current[i] = (phases.current[i] + delta * speed) % 1
+      const t = phases.current[i]
+      // t = 0 at the node, 1 at the core
+      p.position.set(n.pos[0] * (1 - t), n.pos[1] * (1 - t), n.pos[2] * (1 - t))
+      const mat = p.material as THREE.MeshBasicMaterial
+      mat.opacity = Math.sin(t * Math.PI) * (hovered === n.id ? 0.95 : 0.6)
+    })
   })
 
   function focus(topic: NodeDef | null) {
@@ -138,6 +156,10 @@ function Nodes({ animate, onFocusTopic }: { animate: boolean } & SceneProps) {
               transparent
               opacity={isHot ? 0.5 : 0.25}
             />
+            <mesh ref={(el) => void (pulses.current[n.id] = el)}>
+              <sphereGeometry args={[0.045, 10, 10]} />
+              <meshBasicMaterial color={n.color} transparent opacity={0} depthWrite={false} />
+            </mesh>
             <Float speed={animate ? 2 : 0} floatIntensity={0.6} rotationIntensity={0.4}>
               <group position={n.pos}>
                 <group ref={(el) => void (meshes.current[n.id] = el)}>
