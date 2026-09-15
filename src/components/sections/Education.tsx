@@ -6,7 +6,7 @@ import { Reveal } from '@/components/ui/Reveal'
 
 export function Education() {
   return (
-    <Section id="education" eyebrow="Background" title="Education & achievements">
+    <Section id="education" title="Education & achievements">
       <div className="grid gap-5 lg:grid-cols-[1.3fr_1fr]">
         {/* education */}
         <div className="space-y-5">

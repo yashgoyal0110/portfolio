@@ -1,6 +1,8 @@
 export interface Experience {
   id: string
   company: string
+  /** Company site, when there is a public one. */
+  href?: string
   role: string
   location: string
   start: string
@@ -18,6 +20,7 @@ export const experience: Experience[] = [
   {
     id: 'argon',
     company: 'Argon Robotics',
+    href: 'https://argonrobotics.ai',
     role: 'Founding Engineering Intern',
     location: 'USA (remote)',
     start: 'Jun 2026',

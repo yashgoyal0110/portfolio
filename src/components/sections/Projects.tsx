@@ -20,8 +20,7 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Selected Work"
-      title="Things I've built"
+      title="Selected work"
       intro="A few systems I designed and shipped end-to-end. Open one to see the problem, architecture and impact."
     >
       <div className="grid gap-5 md:grid-cols-2">

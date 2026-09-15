@@ -95,7 +95,18 @@ export function Hero() {
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-mist-500">Now</span>
               <span className="h-3 w-px bg-ink-600" />
               <span className="text-mist-200">{current.role}</span>
-              <span className="text-accent-300">@ {current.company}</span>
+              {current.href ? (
+                <a
+                  href={current.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="pointer-events-auto text-accent-300 underline decoration-accent-300/30 underline-offset-4 transition-colors hover:text-accent-200 hover:decoration-accent-200/60"
+                >
+                  @ {current.company}
+                </a>
+              ) : (
+                <span className="text-accent-300">@ {current.company}</span>
+              )}
             </motion.div>
           )}
 

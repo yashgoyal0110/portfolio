@@ -7,7 +7,6 @@ export function OpenSource() {
   return (
     <Section
       id="opensource"
-      eyebrow="Community"
       title="Open source contributions"
       intro={openSourceIntro.blurb}
     >

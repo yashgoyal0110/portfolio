@@ -11,9 +11,8 @@ export function Contact() {
   return (
     <Section
       id="contact"
-      eyebrow="Contact"
       title={<span className="text-gradient">Let's build something reliable.</span>}
-      intro={`${profile.availability}, remote or on-site. Email is the fastest way to reach me.`}
+      intro={`${profile.availability}, remote or on-site.`}
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {socials.map((s) => (

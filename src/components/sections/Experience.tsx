@@ -12,7 +12,6 @@ export function Experience() {
   return (
     <Section
       id="experience"
-      eyebrow="Experience"
       title="Where I've shipped"
       intro="Roles spanning real-time robotics, forward-deployed infrastructure, and core backend product engineering."
     >

@@ -4,32 +4,25 @@ import { Reveal } from './Reveal'
 
 interface SectionProps {
   id: string
-  eyebrow?: string
   title?: ReactNode
   intro?: ReactNode
   children: ReactNode
   className?: string
 }
 
-/** Standard section shell: anchor id, eyebrow label, heading, intro, content. */
-export function Section({ id, eyebrow, title, intro, children, className }: SectionProps) {
+/**
+ * Standard section shell: anchor id, heading, intro, content.
+ * One heading only — the nav already names each section, so a kicker label
+ * above the heading just said the same thing twice.
+ */
+export function Section({ id, title, intro, children, className }: SectionProps) {
   return (
     <section id={id} className={cn('relative scroll-mt-24 py-16 sm:py-20', className)}>
       <div className="container-px">
-        {(eyebrow || title || intro) && (
+        {(title || intro) && (
           <Reveal className="mb-10 sm:mb-12 max-w-3xl">
-            {eyebrow && (
-              <span className="eyebrow">
-                <span className="h-px w-6 bg-accent-400/60" />
-                {eyebrow}
-              </span>
-            )}
-            {title && (
-              <h2 className="mt-4 text-4xl font-semibold sm:text-5xl">{title}</h2>
-            )}
-            {intro && (
-              <p className="mt-5 text-lg leading-relaxed text-mist-400">{intro}</p>
-            )}
+            {title && <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>}
+            {intro && <p className="mt-4 text-lg leading-relaxed text-mist-400">{intro}</p>}
           </Reveal>
         )}
         {children}

@@ -6,7 +6,6 @@ export function About() {
   return (
     <Section
       id="about"
-      eyebrow="About"
       title={<span className="text-gradient">Product-minded, infrastructure-deep.</span>}
     >
       {/* stat strip */}

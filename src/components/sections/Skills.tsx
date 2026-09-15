@@ -24,7 +24,6 @@ export function Skills() {
   return (
     <Section
       id="skills"
-      eyebrow="Capabilities"
       title="The stack I build with"
       intro="Grouped by where each piece sits in the stack, from the languages up to the tooling that keeps things running in production."
     >
