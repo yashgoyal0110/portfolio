@@ -9,8 +9,6 @@ export interface Profile {
   tagline: string
   location: string
   availability: string
-  /** Short hero paragraph. */
-  intro: string
   /** Longer about-section narrative paragraphs. */
   about: string[]
   philosophy: string
@@ -32,9 +30,6 @@ export const profile: Profile = {
   tagline: 'I build reliable, production-grade systems, from real-time robotics to multi-tenant SaaS.',
   location: 'Delhi, India',
   availability: 'Open to internships & full-time opportunities',
-  intro:
-    'Full stack engineer who lives across the stack. Driving real-time control loops, ' +
-    'shipping product backends, taming Kubernetes clusters, and wiring up observability so things stay online at 3am.',
   about: [
     'I’m an engineer who is happiest where product, infrastructure and hardware meet. My range is deliberate: I’ve driven real-time robotics control loops, architected backend services that move real money through ledgers and payouts, and operated the Kubernetes clusters that keep production apps online.',
     'Right now I’m a founding engineer at Argon Robotics, building a real-time bimanual teleoperation stack that drives two 6-DOF arms at 100 Hz, and owning the pipeline that turns the episodes it records into trained, deployed manipulation policies. Before that I was the primary technical engineer keeping 50+ customers’ apps online across ~15 clusters, and I led end-to-end development of an inventory, ledger and payout platform in Spring Boot.',

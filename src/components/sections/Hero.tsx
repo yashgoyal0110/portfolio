@@ -1,19 +1,13 @@
 import { Suspense, lazy, useState } from 'react'
 import { ArrowDown, FileText, Mail, MapPin } from 'lucide-react'
 import type { HeroTopic } from '@/components/three/HeroScene'
-import { Github, Linkedin, XLogo } from '@/components/ui/icons'
 import { profile } from '@/config/profile'
-import { socials } from '@/config/socials'
 import { experience } from '@/config/experience'
 import { useTypewriter } from '@/hooks/useTypewriter'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/cn'
 
 const HeroScene = lazy(() => import('@/components/three/HeroScene'))
-
-function social(id: string) {
-  return socials.find((s) => s.id === id)?.href ?? '#'
-}
 
 /** Current role = the experience still marked "Present". */
 const current = experience.find((e) => e.end === 'Present')
@@ -73,10 +67,6 @@ export function Hero() {
             </div>
           )}
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist-400">
-            {profile.intro}
-          </p>
-
           <div className="pointer-events-auto mt-9 flex flex-wrap items-center gap-3">
             <Button href={profile.resumeUrl} variant="primary" download="Yash-Goyal-Resume.pdf">
               <FileText className="h-4 w-4" />
@@ -85,18 +75,6 @@ export function Hero() {
             <Button href="#contact">
               <Mail className="h-4 w-4" />
               Get in touch
-            </Button>
-            <Button href={social('github')} external ariaLabel="GitHub">
-              <Github className="h-4 w-4" />
-              GitHub
-            </Button>
-            <Button href={social('linkedin')} external ariaLabel="LinkedIn">
-              <Linkedin className="h-4 w-4" />
-              LinkedIn
-            </Button>
-            <Button href={social('x')} external ariaLabel="X">
-              <XLogo className="h-4 w-4" />
-              X
             </Button>
           </div>
         </div>

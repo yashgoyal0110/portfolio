@@ -1,4 +1,3 @@
-import { Compass, Sparkles, Target } from 'lucide-react'
 import { profile } from '@/config/profile'
 import { Section } from '@/components/ui/Section'
 import { Reveal } from '@/components/ui/Reveal'
@@ -33,21 +32,15 @@ export function About() {
 
         <Reveal delay={0.1} className="space-y-4">
           <div className="card p-6">
-            <div className="eyebrow mb-2">
-              <Sparkles className="h-3.5 w-3.5" /> Philosophy
-            </div>
+            <div className="eyebrow mb-2">Philosophy</div>
             <p className="text-mist-200">{profile.philosophy}</p>
           </div>
           <div className="card p-6">
-            <div className="eyebrow mb-2">
-              <Target className="h-3.5 w-3.5" /> Current focus
-            </div>
+            <div className="eyebrow mb-2">Current focus</div>
             <p className="text-mist-200">{profile.currentFocus}</p>
           </div>
           <div className="card p-6">
-            <div className="eyebrow mb-3">
-              <Compass className="h-3.5 w-3.5" /> Interests
-            </div>
+            <div className="eyebrow mb-3">Interests</div>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((it) => (
                 <span

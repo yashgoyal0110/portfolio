@@ -9,45 +9,22 @@ export interface Social {
   handle: string
   href: string
   icon: IconType
-  /** Whether to surface in the compact nav / footer row. */
-  primary?: boolean
 }
 
 export const email = 'yashgoyal.dev@zohomail.in'
 export const phone = '+91 96905 51636'
 
+/**
+ * Rendered as one grid in the Contact section — the only place these live.
+ * Ordered so the direct channels lead and the profile links follow.
+ */
 export const socials: Social[] = [
-  {
-    id: 'github',
-    label: 'GitHub',
-    handle: 'yashgoyal0110',
-    href: 'https://github.com/yashgoyal0110',
-    icon: Github,
-    primary: true,
-  },
-  {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    handle: 'yashgoyal0110',
-    href: 'https://www.linkedin.com/in/yashgoyal0110',
-    icon: Linkedin,
-    primary: true,
-  },
-  {
-    id: 'x',
-    label: 'X',
-    handle: 'yashgoyal0110',
-    href: 'https://x.com/yashgoyal0110',
-    icon: XLogo,
-    primary: true,
-  },
   {
     id: 'email',
     label: 'Email',
     handle: email,
     href: `mailto:${email}`,
     icon: Mail,
-    primary: true,
   },
   {
     id: 'phone',
@@ -62,5 +39,26 @@ export const socials: Social[] = [
     handle: 'Download PDF',
     href: '/yashgoyalcv.pdf',
     icon: FileText,
+  },
+  {
+    id: 'github',
+    label: 'GitHub',
+    handle: 'yashgoyal0110',
+    href: 'https://github.com/yashgoyal0110',
+    icon: Github,
+  },
+  {
+    id: 'linkedin',
+    label: 'LinkedIn',
+    handle: 'yashgoyal0110',
+    href: 'https://www.linkedin.com/in/yashgoyal0110',
+    icon: Linkedin,
+  },
+  {
+    id: 'x',
+    label: 'X',
+    handle: 'yashgoyal0110',
+    href: 'https://x.com/yashgoyal0110',
+    icon: XLogo,
   },
 ]
