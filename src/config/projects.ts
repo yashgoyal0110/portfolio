@@ -47,7 +47,7 @@ export const projects: Project[] = [
     stack: ['NestJS', 'React', 'PostgreSQL', 'Prisma', 'Redis', 'Gemini', 'Docker', 'GCP'],
     links: [
       { label: 'GitHub', href: 'https://github.com/yashgoyal0110/axon' },
-      { label: 'Live demo', href: 'https://axon.8.229.88.229.sslip.io/' },
+      { label: 'Live demo', href: 'https://axon.34.82.91.96.sslip.io/' },
     ],
     accent: '#4fd1e0',
     year: '2026',
